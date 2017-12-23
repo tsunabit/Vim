@@ -35,3 +35,23 @@ if exists("&pythonthreedll") && exists("&pythonthreehome") &&
   endif
 endif
 
+
+" setting
+"文字コードをUFT-8に設定
+set fenc=utf-8
+" 編集中のファイルが変更されたら自動で読み直す
+set autoread
+
+" 見た目系
+" 行番号を表示
+set number
+" 現在の行を強調表示
+set cursorline
+" 現在の行を強調表示（縦）
+set cursorcolumn
+" 括弧入力時の対応する括弧を表示
+set showmatch
+" ステータスラインを常に表示
+set laststatus=2
+" コマンドラインの補完
+set wildmode=list:longest

@@ -109,3 +109,10 @@ endif " exists("macvim_hig_shift_movement")
 " Restore the previous value of 'cpoptions'.
 let &cpo = s:cpo_save
 unlet s:cpo_save
+
+
+" 追加設定
+" カラースキーム
+colorscheme koehler
+" ダーク系のカラースキームを使う
+set background=dark
