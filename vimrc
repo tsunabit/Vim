@@ -41,6 +41,11 @@ endif
 set fenc=utf-8
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
+" ヤンクとクリップボードを連携
+" unnamed=ヤンクとクリップボード連携
+" autoselect=選択範囲を自動でコピーする
+set clipboard=unnamed,autoselect
+
 
 " 見た目系
 " 行番号を表示
