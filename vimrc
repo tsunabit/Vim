@@ -60,3 +60,10 @@ set showmatch
 set laststatus=2
 " コマンドラインの補完
 set wildmode=list:longest
+
+" コメント中の特定(TODO)の単語を強調表示する
+augroup HilightsForce
+  autocmd!
+  autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|NOTE\|INFO\|XXX\|TEMP\)')
+  autocmd WinEnter,BufRead,BufNew,Syntax * highlight Todo guibg=cyan guifg=black
+augroup END
