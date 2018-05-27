@@ -64,6 +64,9 @@ set wildmode=list:longest
 " コメント中の特定(TODO)の単語を強調表示する
 augroup HilightsForce
   autocmd!
-  autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|NOTE\|INFO\|XXX\|TEMP\)')
+  autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|todo\|NOTE\|INFO\|DONE\|done\|TEMP\)')
   autocmd WinEnter,BufRead,BufNew,Syntax * highlight Todo guibg=cyan guifg=black
 augroup END
+
+" インデントの単位となるスペース文字数を4に設定。tab = 4 スペース
+:set tabstop=4
