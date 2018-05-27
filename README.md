@@ -119,6 +119,8 @@ abc.def.ghi
 |:set nonumber|行番号を非表示|
 |:syntax on|文書を色付け|
 |:syntax off|文書の色付けを消す|
+|:terminal|MacVim上でterminalを表示する|
+|exit → Cmd + w|MacVim上で表示したterminalを消す|
 
 
 
