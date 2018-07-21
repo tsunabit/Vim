@@ -3,6 +3,10 @@
 " Maintainer:	Bjorn Winckler <bjorn.winckler@gmail.com>
 " Last Change:	Sat Aug 29 2009
 
+" ---追加コメント---
+" vimrc、gvimrc保存場所
+" /Applications/MacVim.app/Contents/Resources/vim/vimrc
+
 set nocompatible
 
 " The default for 'backspace' is very confusing to new users, so change it to a
@@ -68,5 +72,10 @@ augroup HilightsForce
   autocmd WinEnter,BufRead,BufNew,Syntax * highlight Todo guibg=cyan guifg=black
 augroup END
 
-" インデントの単位となるスペース文字数を4に設定。tab = 4 スペース
-:set tabstop=4
+" オートインデント時にインデントする文字数。tab = 4
+set tabstop=4
+" オートインデント時にインデントする文字数。tabstopと同じ値にしておけばよい
+set shiftwidth=4
+" TABキーを押した際にタブ文字の代わりにスペースをいれる(「ソフトTab」というらしい)。デフォルトはON。
+set expandtab "ソフトタブを有効にする
+" set noexpandtab  "ソフトタブを無効にする
