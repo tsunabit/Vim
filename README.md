@@ -123,6 +123,8 @@ abc.def.ghi
 |:syntax off|文書の色付けを消す|
 |:terminal|MacVim上でterminalを表示する|
 |exit → Cmd + w|MacVim上で表示したterminalを消す|
+|:set wrap|自動折り返しon|
+|:set nowrap|自動折り返しoff|
 
 # テンプレート
 |コマンド|説明|
