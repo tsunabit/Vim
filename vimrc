@@ -77,5 +77,16 @@ set tabstop=4
 " オートインデント時にインデントする文字数。tabstopと同じ値にしておけばよい
 set shiftwidth=4
 " TABキーを押した際にタブ文字の代わりにスペースをいれる(「ソフトTab」というらしい)。デフォルトはON。
-set expandtab "ソフトタブを有効にする
-" set noexpandtab  "ソフトタブを無効にする
+" ソフトタブを有効にする
+set expandtab
+" ソフトタブを無効にする
+" set noexpandtab
+
+" 不可視文字を表示する
+" 補足
+" tab：タブ文字を表示
+" trail：行末のスペースを表示
+" nbsp：ノーブレークスペースを表示
+" eol：改行を表示
+set list
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲
