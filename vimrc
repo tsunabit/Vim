@@ -1,11 +1,7 @@
 " System vimrc file for MacVim
 "
-" Maintainer:	Bjorn Winckler <bjorn.winckler@gmail.com>
-" Last Change:	Sat Aug 29 2009
-
-" ---追加コメント---
-" vimrc、gvimrc保存場所
-" /Applications/MacVim.app/Contents/Resources/vim/vimrc
+" Author:       Bjorn Winckler <bjorn.winckler@gmail.com>
+" Maintainer:   macvim-dev (https://github.com/macvim-dev)
 
 set nocompatible
 
@@ -19,27 +15,44 @@ set backspace+=indent,eol,start
 set langmenu=none
 
 " Python2
-" MacVim uses Homebrew python2 if installed, otherwise configured one
+" MacVim is configured by default to use the pre-installed System python2
+" version. However, following code tries to find a Homebrew, MacPorts or
+" an installation from python.org:
 if exists("&pythondll") && exists("&pythonhome")
   if filereadable("/usr/local/Frameworks/Python.framework/Versions/2.7/Python")
     " Homebrew python 2.7
     set pythondll=/usr/local/Frameworks/Python.framework/Versions/2.7/Python
     set pythonhome=/usr/local/Frameworks/Python.framework/Versions/2.7
+  elseif filereadable("/opt/local/Library/Frameworks/Python.framework/Versions/2.7/Python")
+    " MacPorts python 2.7
+    set pythondll=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/Python
+    set pythonhome=/opt/local/Library/Frameworks/Python.framework/Versions/2.7
+  elseif filereadable("/Library/Frameworks/Python.framework/Versions/2.7/Python")
+    " https://www.python.org/downloads/mac-osx/
+    set pythondll=/Library/Frameworks/Python.framework/Versions/2.7/Python
+    set pythonhome=/Library/Frameworks/Python.framework/Versions/2.7
   endif
 endif
 
 " Python3
-" MacVim uses Homebrew python3 if installed, next try to use python.org binary
+" MacVim is configured by default to use Homebrew python3 version
+" If this cannot be found, following code tries to find a MacPorts
+" or an installation from python.org:
 if exists("&pythonthreedll") && exists("&pythonthreehome") &&
       \ !filereadable(&pythonthreedll)
-  if filereadable("/Library/Frameworks/Python.framework/Versions/3.6/Python")
+  if filereadable("/opt/local/Library/Frameworks/Python.framework/Versions/3.7/Python")
+    " MacPorts python 3.7
+    set pythonthreedll=/opt/local/Library/Frameworks/Python.framework/Versions/3.7/Python
+    set pythonthreehome=/opt/local/Library/Frameworks/Python.framework/Versions/3.7
+  elseif filereadable("/Library/Frameworks/Python.framework/Versions/3.7/Python")
     " https://www.python.org/downloads/mac-osx/
-    set pythonthreedll=/Library/Frameworks/Python.framework/Versions/3.6/Python
-    set pythonthreehome=/Library/Frameworks/Python.framework/Versions/3.6
+    set pythonthreedll=/Library/Frameworks/Python.framework/Versions/3.7/Python
+    set pythonthreehome=/Library/Frameworks/Python.framework/Versions/3.7
   endif
 endif
 
 
+" ---追加設定---
 " setting
 "文字コードをUFT-8に設定
 set fenc=utf-8
@@ -89,4 +102,4 @@ set expandtab
 " nbsp：ノーブレークスペースを表示
 " eol：改行を表示
 set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+set listchars=tab:»-,trail:-,nbsp:%,eol:
