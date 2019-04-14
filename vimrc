@@ -1,7 +1,11 @@
 " System vimrc file for MacVim
 "
-" Author:       Bjorn Winckler <bjorn.winckler@gmail.com>
-" Maintainer:   macvim-dev (https://github.com/macvim-dev)
+" Maintainer:	Bjorn Winckler <bjorn.winckler@gmail.com>
+" Last Change:	Sat Aug 29 2009
+
+" ---追加コメント---
+" vimrc、gvimrc保存場所
+" /Applications/MacVim.app/Contents/Resources/vim/vimrc
 
 set nocompatible
 
@@ -15,44 +19,27 @@ set backspace+=indent,eol,start
 set langmenu=none
 
 " Python2
-" MacVim is configured by default to use the pre-installed System python2
-" version. However, following code tries to find a Homebrew, MacPorts or
-" an installation from python.org:
+" MacVim uses Homebrew python2 if installed, otherwise configured one
 if exists("&pythondll") && exists("&pythonhome")
   if filereadable("/usr/local/Frameworks/Python.framework/Versions/2.7/Python")
     " Homebrew python 2.7
     set pythondll=/usr/local/Frameworks/Python.framework/Versions/2.7/Python
     set pythonhome=/usr/local/Frameworks/Python.framework/Versions/2.7
-  elseif filereadable("/opt/local/Library/Frameworks/Python.framework/Versions/2.7/Python")
-    " MacPorts python 2.7
-    set pythondll=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/Python
-    set pythonhome=/opt/local/Library/Frameworks/Python.framework/Versions/2.7
-  elseif filereadable("/Library/Frameworks/Python.framework/Versions/2.7/Python")
-    " https://www.python.org/downloads/mac-osx/
-    set pythondll=/Library/Frameworks/Python.framework/Versions/2.7/Python
-    set pythonhome=/Library/Frameworks/Python.framework/Versions/2.7
   endif
 endif
 
 " Python3
-" MacVim is configured by default to use Homebrew python3 version
-" If this cannot be found, following code tries to find a MacPorts
-" or an installation from python.org:
+" MacVim uses Homebrew python3 if installed, next try to use python.org binary
 if exists("&pythonthreedll") && exists("&pythonthreehome") &&
       \ !filereadable(&pythonthreedll)
-  if filereadable("/opt/local/Library/Frameworks/Python.framework/Versions/3.7/Python")
-    " MacPorts python 3.7
-    set pythonthreedll=/opt/local/Library/Frameworks/Python.framework/Versions/3.7/Python
-    set pythonthreehome=/opt/local/Library/Frameworks/Python.framework/Versions/3.7
-  elseif filereadable("/Library/Frameworks/Python.framework/Versions/3.7/Python")
+  if filereadable("/Library/Frameworks/Python.framework/Versions/3.6/Python")
     " https://www.python.org/downloads/mac-osx/
-    set pythonthreedll=/Library/Frameworks/Python.framework/Versions/3.7/Python
-    set pythonthreehome=/Library/Frameworks/Python.framework/Versions/3.7
+    set pythonthreedll=/Library/Frameworks/Python.framework/Versions/3.6/Python
+    set pythonthreehome=/Library/Frameworks/Python.framework/Versions/3.6
   endif
 endif
 
 
-" ---追加設定---
 " setting
 "文字コードをUFT-8に設定
 set fenc=utf-8
@@ -81,8 +68,11 @@ set wildmode=list:longest
 " コメント中の特定(TODO)の単語を強調表示する
 augroup HilightsForce
   autocmd!
-  autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|todo\|NOTE\|INFO\|DONE\|done\|TEMP\)')
-  autocmd WinEnter,BufRead,BufNew,Syntax * highlight Todo guibg=cyan guifg=black
+  autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|todo\)')
+  autocmd WinEnter,BufRead,BufNew,Syntax * highlight Todo guibg=Red guifg=white
+  autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Done', '\(DONE\|done\)')
+  autocmd WinEnter,BufRead,BufNew,Syntax * highlight Done guibg=blue guifg=white
+
 augroup END
 
 " オートインデント時にインデントする文字数。tab = 4
@@ -102,4 +92,4 @@ set expandtab
 " nbsp：ノーブレークスペースを表示
 " eol：改行を表示
 set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲
