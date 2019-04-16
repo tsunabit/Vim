@@ -72,7 +72,8 @@ augroup HilightsForce
   autocmd WinEnter,BufRead,BufNew,Syntax * highlight Todo guibg=Red guifg=white
   autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Done', '\(DONE\|done\)')
   autocmd WinEnter,BufRead,BufNew,Syntax * highlight Done guibg=blue guifg=white
-
+  autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Info', '\(INFO\|info\)')
+  autocmd WinEnter,BufRead,BufNew,Syntax * highlight Info guibg=yellow guifg=black
 augroup END
 
 " オートインデント時にインデントする文字数。tab = 4
