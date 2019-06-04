@@ -66,6 +66,7 @@ set laststatus=2
 set wildmode=list:longest
 
 " コメント中の特定(TODO)の単語を強調表示する
+" 参考URL = https://qiita.com/omega999/items/15031eece4256eb500e7
 augroup HilightsForce
   autocmd!
   autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|todo\)')
@@ -74,6 +75,8 @@ augroup HilightsForce
   autocmd WinEnter,BufRead,BufNew,Syntax * highlight Done guibg=blue guifg=white
   autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Info', '\(INFO\|info\)')
   autocmd WinEnter,BufRead,BufNew,Syntax * highlight Info guibg=yellow guifg=black
+  autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Agenda', '\(AGENDA\|agenda\)')
+  autocmd WinEnter,BufRead,BufNew,Syntax * highlight Agenda guibg=green guifg=black
 augroup END
 
 " オートインデント時にインデントする文字数。tab = 4
