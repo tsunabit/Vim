@@ -76,7 +76,7 @@ augroup HilightsForce
   autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Info', '\(INFO\|info\)')
   autocmd WinEnter,BufRead,BufNew,Syntax * highlight Info guibg=yellow guifg=black
   autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Agenda', '\(AGENDA\|agenda\)')
-  autocmd WinEnter,BufRead,BufNew,Syntax * highlight Agenda guibg=green guifg=black
+  autocmd WinEnter,BufRead,BufNew,Syntax * highlight Agenda guibg=darkgreen guifg=white
 augroup END
 
 " オートインデント時にインデントする文字数。tab = 4
