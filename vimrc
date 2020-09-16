@@ -101,4 +101,5 @@ set expandtab
 " nbsp：ノーブレークスペースを表示
 " eol：改行を表示
 set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+" set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+set listchars=tab:»-,trail:-,nbsp:↲

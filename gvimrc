@@ -111,6 +111,8 @@ unlet s:cpo_save
 
 " -----ここから自分の設定-----
 " カラースキーム
-colorscheme koehler
+" colorscheme koehler
 " ダーク系のカラースキームを使う
-set background=dark
+" set background=dark
+" desertカラースキーム使用
+colorscheme desert
